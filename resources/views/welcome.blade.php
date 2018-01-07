@@ -9,13 +9,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <link href="style.css" type="text/css" rel="stylesheet" />
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="mapa.js"></script>
-    <script type="text/javascript" src="jquery-ui.custom.min.js"></script>
 
 </head>
 
@@ -43,23 +38,44 @@
                         <input type="text" id="add2" name="add2Text" class="form-control"/>
                     </div>
 
-                    <div id="map"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                            <div id="map"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="submit" value="Obter menor caminho" name="btnSend" class="btn btn-primary text-center">
 
-                    <input type="submit" value="Obter menor caminho" name="btnSend" class="btn btn-primary"/>
-
-                    <input type="hidden" id="txtLatitude" name="txtLatitude" />
-                    <input type="hidden" id="txtLongitude" name="txtLongitude" />
+                        <input type="hidden" id="txtLatitude1" name="txtLatitude1" />
+                        <input type="hidden" id="txtLongitude1" name="txtLongitude1" />
+                        <input type="hidden" id="txtLatitude2" name="txtLatitude2" />
+                        <input type="hidden" id="txtLongitude2" name="txtLongitude2" />
+                    </div>
                 </div>
             </div>
 
         </fieldset>
     </form>
 
+
 </div>
 
 </body>
 
 <footer>
-    <div><span>Desenvolvido por <a href="https://github.com/jameswpm" target="_blank">James Miranda.</a><br></span></div>
+    <div class="author"><span>Desenvolvido por <a href="https://github.com/jameswpm" target="_blank">James Miranda.</a><br></span></div>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.8.24/jquery-ui.min.js"
+            integrity="sha256-UOoxwEUqhp5BSFFwqzyo2Qp4JLmYYPTHB8l+1yhZij8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDL6T2uw5F1PBOt0G9_N2T_ge3OYyCAMeY"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/map.js') }}"></script>
 </footer>
 </html>

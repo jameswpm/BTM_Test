@@ -1,0 +1,60 @@
+body{
+    background-color: #e5e5e5;
+}
+
+legend {
+    display: none
+}
+
+h1 {
+    text-align: center;
+    color: #555;
+    text-shadow: 2px 2px 0 #ccc;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px
+}
+
+
+
+#map {
+    width: 940px;
+    height: 400px;
+    border: 10px solid #ccc;;
+    margin-bottom: 20px;
+}
+
+
+.author {
+    bottom: 0;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 10px; position: fixed; left: 38%; width: 345px;
+    font-size: 15px;
+}
+.author span {
+    color: #333;
+    font: 13px Tahoma, Arial
+}
+
+
+/* =============== Autocomplete =============== */
+.ui-autocomplete {
+    background: #fff;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    font: 15px 'Open Sans',Arial;
+    margin-left: 3px;
+    width: 50% !important;
+    position: fixed;
+}
+
+.ui-autocomplete .ui-menu-item {
+    list-style: none outside none;
+    padding: 7px 0 9px 10px;
+}
+
+.ui-autocomplete .ui-menu-item:hover { background: #eee }
+
+.ui-autocomplete .ui-corner-all {
+    color: #666 !important;
+    display: block;
+}
