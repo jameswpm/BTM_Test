@@ -1,7 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "BTM_Teste",
+    "description": "BTM_Teste apresenta uma aplicação simples para apresentar o melhor caminho entre dois pontos usando a API do Google Maps.",
     "license": "MIT",
     "type": "project",
     "require": {
