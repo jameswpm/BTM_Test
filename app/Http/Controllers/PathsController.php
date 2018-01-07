@@ -27,18 +27,29 @@ class PathsController extends Controller
 
         //get response and define the 3 shortest paths (in time)
         $routes = json_decode($response, true)['routes'];
-        $shortests_distances = [];
-        $shortests_durations = [];
+        $durations = [];
         foreach ($routes as $key => $route) {
-            $distance = $route['legs']['distance']['value'];
-            $duration = $route['legs']['duration']['value'];
-
-            if (!empty($shortests_distances) and count($shortests_distances) < 3) {
-
-            }
+            $duration = $route['legs'][0]['duration']['value'];
+            $durations[$key] = $duration;
         }
 
+        // sort array
+        asort($durations, SORT_NUMERIC);
+        //get 3 smallest values from array
+        $smallest_durations = array_slice($durations, 0, 3, true);
 
-        return response()->json(['source' => 'Abigail', 'destiny' => 'CA']);
+        //get the values to return from original routes array
+        $origin = [];
+        $destination = [];
+        $origin['latitude'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['start_location']['lat'];
+        $origin['longitude'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['start_location']['lng'];
+        $origin['address'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['start_address'];
+        $destination['latitude'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['end_location']['lat'];
+        $destination['longitude'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['end_location']['lng'];
+        $destination['address'] = $routes[array_keys($smallest_durations)[0]]['legs'][0]['end_address'];
+        $legs = $routes[array_keys($smallest_durations)[0]]['legs'];
+
+
+        return response()->json(['origin' => $origin, 'destination' => $destination, 'legs' => $legs]);
     }
 }

@@ -41,9 +41,9 @@ $(document).ready(function () {
                     var latitude = results[0].geometry.location.lat();
                     var longitude = results[0].geometry.location.lng();
 
-                    $('#add1').val(results[0].formatted_address);
-                    $('#txtLatitude1').val(latitude);
-                    $('#txtLongitude1').val(longitude);
+                    $('#add' + markerNum).val(results[0].formatted_address);
+                    $('#txtLatitude' + markerNum).val(latitude);
+                    $('#txtLongitude' + markerNum).val(longitude);
 
                     var location = new google.maps.LatLng(latitude, longitude);
                     var markerName = window['marker' + markerNum];
@@ -140,13 +140,53 @@ $(document).ready(function () {
             url: "/api/v1/paths",
             datatype: "json",
             success: function(ret) {
-                alert(ret);
+
+                console.log(ret);
+                var polyline = new google.maps.Polyline({
+                    path: [],
+                    strokeColor: '#FF0000',
+                    strokeWeight: 3
+                });
+                var bounds = new google.maps.LatLngBounds();
+
+
+                var legs = ret.legs;
+                for (i=0;i<legs.length;i++) {
+                    var steps = legs[i].steps;
+                    for (j=0;j<steps.length;j++) {
+                        var nextSegment = google.maps.geometry.encoding.decodePath(steps[j].polyline.points);
+                        for (k=0;k<nextSegment.length;k++) {
+                            polyline.getPath().push(nextSegment[k]);
+                            bounds.extend(nextSegment[k]);
+                        }
+                    }
+                }
+
+                polyline.setMap(map);
+                map.fitBounds(bounds);
+
+                var origin = $('#result').find('div#origin');
+                var dest = $('#result').find('div#dest');
+
+                origin.find('p.add').html('Endereço: ' + ret.origin.address);
+                origin.find('p.lat').html('Latitude: ' + ret.origin.latitude);
+                origin.find('p.lng').html('Latitude: ' + ret.origin.longitude);
+
+                dest.find('p.add').html('Endereço: ' + ret.destination.address);
+                dest.find('p.lat').html('Latitude: ' + ret.destination.latitude);
+                dest.find('p.lng').html('Latitude: ' + ret.destination.longitude);
+
+                $('#result').show();
             },
             error: function(response){
                 alert('Error'+response);
             }
 
         });
+    });
+
+    $("#btnReset").click(function(event) {
+        initialize();
     });
 
 });
