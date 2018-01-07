@@ -4,7 +4,7 @@ var marker1;
 var marker2;
 
 function initialize() {
-    var latlng = new google.maps.LatLng(-18.8800397, -47.05878999999999);
+    var latlng = new google.maps.LatLng(-23.6747024, -46.60654929999998);
     var options = {
         zoom: 5,
         center: latlng,
@@ -130,7 +130,21 @@ $(document).ready(function () {
     });
 
     $("form").submit(function(event) {
+        event.preventDefault();
+        var source = {"latitude": $("#txtLatitude1").val(), "longitude": $("#txtLongitude1").val()};
+        var destiny = {"latitude": $("#txtLatitude2").val(), "longitude": $("#txtLongitude2").val()};
+        $.ajax({
+            'processing': true,
+            'serverSide': true,
+            type: "POST",
+            data: [source, destiny],
+            url: "/paths",
+            datatype: "json",
+            success: function(ret) {
+                alert(ret);
+            }
 
+        });
     });
 
 });
