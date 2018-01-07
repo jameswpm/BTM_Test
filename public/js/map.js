@@ -131,17 +131,19 @@ $(document).ready(function () {
 
     $("form").submit(function(event) {
         event.preventDefault();
-        var source = {"latitude": $("#txtLatitude1").val(), "longitude": $("#txtLongitude1").val()};
-        var destiny = {"latitude": $("#txtLatitude2").val(), "longitude": $("#txtLongitude2").val()};
+
         $.ajax({
             'processing': true,
             'serverSide': true,
             type: "POST",
-            data: [source, destiny],
-            url: "/paths",
+            data: $(this).serialize(),
+            url: "/api/v1/paths",
             datatype: "json",
             success: function(ret) {
                 alert(ret);
+            },
+            error: function(response){
+                alert('Error'+response);
             }
 
         });

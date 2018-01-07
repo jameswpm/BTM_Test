@@ -21,8 +21,6 @@
     <h1>BTM - Short Trip</h1>
 
     <form method="post" action="index.html">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
         <fieldset>
 
             <legend>BTM - Short Trip</legend>
