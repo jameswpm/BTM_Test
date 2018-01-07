@@ -14,8 +14,8 @@
  - Install dependencies
     `composer install`
     
- - Run built in server in src directory
-    `cd src/ && php artisan serve`
+ - Run built-in laravel server in directory
+    `cd php artisan serve`
     
  - Access the localhost:8000 in your browser and test the page
  
