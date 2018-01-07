@@ -15,7 +15,7 @@
     `composer install`
     
  - Run built-in laravel server in directory
-    `cd php artisan serve`
+    `php artisan serve`
     
  - Access the localhost:8000 in your browser and test the page
  
