@@ -20,7 +20,7 @@
 
     <h1>BTM - Short Trip</h1>
 
-    <form method="post" action="index.html">
+    <form method="post" action="{{action('PathsController@receive')}}">
         <fieldset>
 
             <legend>BTM - Short Trip</legend>

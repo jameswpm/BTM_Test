@@ -131,13 +131,13 @@ $(document).ready(function () {
 
     $("form").submit(function(event) {
         event.preventDefault();
-
+        var api = $(this).attr('action');
         $.ajax({
             'processing': true,
             'serverSide': true,
             type: "POST",
             data: $(this).serialize(),
-            url: "/api/v1/paths",
+            url: api,
             datatype: "json",
             success: function(ret) {
 
