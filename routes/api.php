@@ -16,5 +16,6 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'v1'], function() {
     Route::post('/paths', ['uses' => "PathsController@receive"]);
+    Route::post('/send', ['uses' => "ApiController@send"]);
 });
 

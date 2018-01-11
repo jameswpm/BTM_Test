@@ -8,6 +8,7 @@
         "alexpechkarev/google-maps": "1.0.8",
         "barryvdh/laravel-ide-helper": "^2.4",
         "fideloper/proxy": "~3.3",
+        "guzzlehttp/guzzle": "~6.0",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0"
     },
