@@ -46,6 +46,8 @@
                     <div class="col-md-6 col-md-offset-3">
                         <input type="submit" value="Obter menor caminho" name="btnSend" class="btn btn-primary text-center">
                         <input type="reset" value="Limpar mapa" id="btnReset" name="btnReset" class="btn btn-warning text-center">
+                        <button class="btn btn-primary text-center" onclick="location.href='{{ url('apis') }}'">
+                            Teste API</button>
 
                         <input type="hidden" id="txtLatitude1" name="txtLatitude1" />
                         <input type="hidden" id="txtLongitude1" name="txtLongitude1" />
